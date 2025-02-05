@@ -1,0 +1,151 @@
+* {
+  outline: none;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-tap-highlight-color: transparent;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  font-family: "Golos", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.2;
+}
+body.hidden {
+  overflow: hidden;
+}
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+button {
+  cursor: pointer;
+}
+form,
+main,
+section,
+aside,
+header,
+footer,
+article,
+picture {
+  display: block;
+}
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+input[type="search"] {
+  border-radius: 0;
+  background-image: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  -webkit-appearance: none;
+  appearance: none;
+  -webkit-border-radius: 0px;
+  font-family: inherit;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: none;
+  border-radius: 0;
+  background-image: none;
+  background-color: transparent;
+  box-shadow: none;
+  -webkit-appearance: none;
+  appearance: none;
+  -webkit-border-radius: 0px;
+  font-family: inherit;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  border: none;
+  border-radius: 0;
+  background-image: none;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+  font-family: inherit;
+}
+p {
+  padding: 0;
+  margin: 0;
+}
+input,
+button,
+textarea {
+  font-family: "Golos", sans-serif;
+  font-size: 16px;
+  line-height: 1.3;
+  font-weight: 500;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+input[type="text"]::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+input[type="text"]::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+a {
+  color: inherit;
+  transition: 0.25s color;
+  text-decoration: none;
+}
+.fullScreen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0);
+}
+.container {
+  width: 100%;
+  max-width: 1248px;
+  padding: 0 16px;
+  margin: 0 auto;
+}
+.mainContent {
+  flex-grow: 1;
+}
