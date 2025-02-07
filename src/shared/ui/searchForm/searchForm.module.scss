@@ -1,0 +1,18 @@
+.form {
+  display: flex;
+  align-items: stretch;
+  .input {
+    display: block;
+    padding: 13px 16px;
+    flex-grow: 1;
+    min-height: 100%;
+    font-size: 14px;
+    line-height: 21px;
+    background-color: #ffffff;
+    border: 1px solid #e1e1e1;
+    transition: .25s border-color;
+    &:focus {
+      border-color: #b5b5b5;
+    }
+  }
+}

@@ -196,6 +196,7 @@ module.exports = (_, argv) => {
     resolve: {
       alias: {
         "@shared": path.resolve(__dirname, "./src/shared"),
+        "@pages": path.resolve(__dirname, "./src/pages"),
         "@widgets": path.resolve(__dirname, "./src/widgets"),
         "@app": path.resolve(__dirname, "./src/app"),
       },
@@ -226,13 +227,40 @@ module.exports = (_, argv) => {
             }
           ]
         },
+        {
+          test: /\.(woff|woff2|eot|ttf|otf)$/,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: '[name].[ext]',
+                outputPath: "fonts/",
+                publicPath: isProduction ? "./fonts" : "/dist/fonts",
+              },
+            },
+          ]
+        },
         useCSSModuleLoader(),
         useCSSLoader(),
         {
-          test: /\.(png|jpg|gif|svg)$/,
+          test: /\.svg$/,
+          loader: 'vue-svg-loader',
+          options: {
+            svgo: {
+              plugins: [
+                { removeDoctype: true },
+                { removeComments: true },
+              ]
+            }
+          }
+        },
+        {
+          test: /\.(png|jpg|gif|webp)$/,
           loader: "file-loader",
           options: {
-            name: "[name].[ext]?[hash]",
+            name: "images/[name].[ext]?[hash]",
+            outputPath: "images/",
+            publicPath: isProduction ? "./images" : "/dist/images",
           },
         },
       ],

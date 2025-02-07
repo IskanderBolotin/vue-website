@@ -1,0 +1,15 @@
+.list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  margin: 0 -24px;
+}
+.item {
+  padding: 0 24px;
+}
+.link {
+  font-size: 14px;
+  line-height: 21px;
+}

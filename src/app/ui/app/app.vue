@@ -1,21 +1,18 @@
 <template>
-  <div id="app">
-    <layout />
-  </div>
+  <MainPage />
 </template>
 
 <script>
-  import Layout from "@shared/ui/layout/layout.vue";
+  import MainPage from "@pages/mainPage/mainPage.vue";
   import styles from "./app.module.scss";
 
   export default {
-    name: 'app',
+    name: 'App',
     components: {
-      Layout,
+      MainPage,
     },
     data () {
       return {
-        message: 'Welcome to Vue.js',
         styles
       }
     }

@@ -2,3 +2,17 @@
   padding: 24px 0;
   border-bottom: 1px solid #e1e1e1;
 }
+.row {
+  display: flex;
+  align-items: center;
+  margin: 0 -16px;
+}
+.menu {
+  padding: 0 16px;
+  margin: 0 auto;
+}
+.search {
+  width: 35.9%;
+  padding: 0 16px;
+  margin-left: auto;
+}

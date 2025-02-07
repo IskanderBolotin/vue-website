@@ -1,0 +1,15 @@
+.list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  margin: -32px -16px 0 ;
+}
+.item {
+  padding: 32px 16px 0;
+  width: calc(100% / 4);
+  display: flex;
+  flex-direction: column;
+  & > * {
+    flex-grow: 1;
+  }
+}

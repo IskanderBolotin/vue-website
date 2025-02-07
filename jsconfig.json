@@ -1,11 +1,12 @@
 {
   "compilerOptions": {
-    "baseUrl": ".", // Указывает корневую директорию для путей
+    "baseUrl": ".",
     "paths": {
       "@shared/*": ["src/shared/*"],
+      "@pages/*": ["src/pages/*"],
       "@widgets/*": ["src/widgets/*"],
       "@app/*": ["src/app/*"],
     }
   },
-  "exclude": ["node_modules"] // Исключаем node_modules
+  "exclude": ["node_modules"]
 }
