@@ -2,11 +2,14 @@
   <header :class="styles.header">
     <div class="container">
       <div :class="styles.row">
+        <div :class="styles.designFix"></div>
         <div :class="styles.menu">
-          <NavigationMenu />
+            <NavigationMenu />
         </div>
         <div :class="styles.search">
-          <SearchForm />
+          <div :class="styles.filed">
+            <SearchForm />
+          </div>
         </div>
       </div>
     </div>

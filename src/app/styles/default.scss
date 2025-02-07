@@ -1,4 +1,4 @@
-@use "../fonts/fonts.scss" as *;
+@use "../fonts/fonts.scss";
 
 * {
   outline: none;
@@ -16,7 +16,8 @@ body {
   font-weight: 400;
   font-size: 16px;
   line-height: 1.2;
-  color: #343030;;
+  background-color: #f6f3f3;
+  color: #343030;
 }
 body.hidden {
   overflow: hidden;
@@ -159,5 +160,5 @@ a {
   font-size: 24px;
   line-height: 36px;
   margin-top: 0;
-  margin-bottom: 39px;
+  margin-bottom: 37px;
 }

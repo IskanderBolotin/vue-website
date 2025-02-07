@@ -1,4 +1,5 @@
 <template>
+  <div>
   <ul :class="styles.list">
     <li v-for="picture in pictures" :class="styles.item">
       <Product 
@@ -6,9 +7,13 @@
         :name="picture.name"
         :price="picture.price"
         :oldPrice="picture.oldPrice"
+        :isInStock="picture.isInStock"
+        :description="picture.description"
+        :gallery="picture.gallery"
       />
     </li>
   </ul>
+</div>
 </template>
 
 <script>
@@ -27,10 +32,10 @@ export default {
   data() {
     return {
       pictures: [
-        { image: Picture1, name: "«Рождение Венеры» Сандро Боттичелли", price: "1 000 000", oldPrice: "2 000 000" },
-        { image: Picture2, name: "«Тайная вечеря»  Леонардо да Винчи", price: "3 000 000", },
-        { image: Picture3, name: "«Сотворение Адама» Микеланджело", price: "5 000 000", oldPrice: "6 000 000" },
-        { image: Picture4, name: "«Урок анатомии»  Рембрандт", price: "1 000 000", oldPrice: "2 000 000" },
+        { image: Picture1, name: "«Рождение Венеры» Сандро Боттичелли", price: "1 000 000", oldPrice: "2 000 000", description: "Test", gallery: [Picture1, Picture2, Picture3, Picture4], },
+        { image: Picture2, name: "«Тайная вечеря»  Леонардо да Винчи", price: "3 000 000", description: "Test", gallery: [Picture1, Picture2, Picture3, Picture4], },
+        { image: Picture3, name: "«Сотворение Адама» Микеланджело", price: "5 000 000", oldPrice: "6 000 000", description: "Test", gallery: [Picture1, Picture2, Picture3, Picture4], },
+        { image: Picture4, name: "«Урок анатомии»  Рембрандт", price: "1 000 000", oldPrice: "2 000 000", isInStock: false, description: "Test", gallery: [Picture1, Picture2, Picture3, Picture4], },
       ],
       styles,
     };

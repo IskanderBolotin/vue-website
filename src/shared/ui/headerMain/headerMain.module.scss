@@ -1,5 +1,6 @@
 .header {
-  padding: 24px 0;
+  padding: 25px 0 23px;
+  background-color: #f6f3f3;
   border-bottom: 1px solid #e1e1e1;
 }
 .row {
@@ -7,12 +8,21 @@
   align-items: center;
   margin: 0 -16px;
 }
+.designFix {
+  flex-shrink: 0;
+  width: 67px;
+}
 .menu {
   padding: 0 16px;
   margin: 0 auto;
 }
 .search {
-  width: 35.9%;
+  width: calc(100% * 5 / 12);
   padding: 0 16px;
+  margin-left: auto;
+}
+.filed {
+  width: 416px;
+  max-width: 100%;
   margin-left: auto;
 }

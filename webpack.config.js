@@ -119,6 +119,9 @@ module.exports = (_, argv) => {
             options: {
               modules: true,
               importLoaders: 2,
+              modules: {
+                localIdentName: '[name]__[local]--[hash:base64:5]', 
+              },
             },
           },
           {
@@ -154,6 +157,9 @@ module.exports = (_, argv) => {
             modules: true,
             importLoaders: 1,
             sourceMap: true,
+            modules: {
+              localIdentName: '[name]__[local]--[hash:base64:5]',
+            },
           },
         },
         {
@@ -227,19 +233,6 @@ module.exports = (_, argv) => {
             }
           ]
         },
-        {
-          test: /\.(woff|woff2|eot|ttf|otf)$/,
-          use: [
-            {
-              loader: 'file-loader',
-              options: {
-                name: '[name].[ext]',
-                outputPath: "fonts/",
-                publicPath: isProduction ? "./fonts" : "/dist/fonts",
-              },
-            },
-          ]
-        },
         useCSSModuleLoader(),
         useCSSLoader(),
         {
@@ -262,6 +255,19 @@ module.exports = (_, argv) => {
             outputPath: "images/",
             publicPath: isProduction ? "./images" : "/dist/images",
           },
+        },
+        {
+          test: /\.(woff|woff2|eot|ttf|otf)$/,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: '[name].[ext]',
+                outputPath: "fonts/",
+                publicPath: isProduction ? "./fonts" : "/dist/fonts",
+              },
+            },
+          ]
         },
       ],
     },

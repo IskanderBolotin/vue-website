@@ -2,3 +2,21 @@
   padding: 37px 0;
   background-color: #eceaea;
 }
+.row {
+  display: flex;
+  align-items: center;
+  margin: 0 -16px;
+}
+.menu {
+  padding: 0 16px;
+  margin: 0 auto;
+}
+.contacts {
+  width: calc(100% * 5 / 12);
+  padding: 0 16px;
+  margin-left: auto;
+}
+.designFix {
+  flex-shrink: 0;
+  width: 66px;
+}
