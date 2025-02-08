@@ -253,7 +253,7 @@ module.exports = (_, argv) => {
           test: /\.(png|jpg|gif|webp)$/,
           loader: "file-loader",
           options: {
-            name: "images/[name].[ext]?[hash]",
+            name: "[name].[ext]?[hash]",
             outputPath: "images/",
             publicPath: isProduction ? "./images" : "/dist/images",
           },
