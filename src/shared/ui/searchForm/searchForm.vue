@@ -5,6 +5,7 @@
       v-model="searchQuery"
       placeholder="Поиск по названию картины"
       @keyup.enter="handleSearch"
+      @input="handleInput"
       :class="styles.input"
     />
     <CustomButton :state="buttonState" :onClick="handleSearch">
@@ -14,6 +15,7 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 import CustomButton from "@shared/ui/customButton/customButton.vue";
 import styles from "./searchForm.module.scss";
 
@@ -30,6 +32,7 @@ export default {
     };
   },
   methods: {
+    ...mapActions(["updateSearchQuery"]),
     async handleSearch() {
       if (!this.searchQuery.trim()) {
         return;
@@ -40,9 +43,15 @@ export default {
       try {
         await this.performSearch();
         this.buttonState = "";
+        this.updateSearchQuery(this.searchQuery);
       } catch (error) {
         console.error("Ошибка поиска:", error);
         this.buttonState = "";
+      }
+    },
+    handleInput() {
+      if (!this.searchQuery.trim()) {
+        this.updateSearchQuery("");
       }
     },
     performSearch() {
@@ -53,7 +62,7 @@ export default {
           } else {
             resolve();
           }
-        }, 2000);
+        }, 500);
       });
     },
   },

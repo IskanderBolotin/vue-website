@@ -7,14 +7,17 @@
   import styles from "./app.module.scss";
 
   export default {
-    name: 'App',
+    name: "App",
     components: {
       MainPage,
     },
-    data () {
+    data() {
       return {
-        styles
-      }
-    }
-  }
+        styles,
+      };
+    },
+    mounted() {
+      this.$store.dispatch("fetchPictures");
+    },
+  };
 </script>

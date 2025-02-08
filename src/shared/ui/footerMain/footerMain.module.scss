@@ -1,5 +1,8 @@
+@use "@shared/config/variables.scss" as *;
+
 .footer {
   padding: 37px 0;
+  overflow: hidden;
   background-color: #eceaea;
 }
 .row {
@@ -10,6 +13,9 @@
 .menu {
   padding: 0 16px;
   margin: 0 auto;
+  @media (max-width: $media-laptop) {
+    margin: 0;
+  }
 }
 .contacts {
   width: calc(100% * 5 / 12);
@@ -18,5 +24,8 @@
 }
 .designFix {
   flex-shrink: 0;
-  width: 66px;
+  width: 67px;
+  @media (max-width: $media-laptop) {
+    display: none;
+  }
 }

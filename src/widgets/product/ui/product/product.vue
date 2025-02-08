@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :class="styles.wrapper">
     <div :class="productClasses">
       <div :class="styles.image">
         <div :class="styles.imageInner" @click="openModal">
@@ -106,6 +106,9 @@ export default {
       this.isModalOpen = false;
     },
     async handleBuyClick() {
+      if (this.buttonState === "checked") {
+        return
+      }
       this.buttonState = "preloader";
 
       try {

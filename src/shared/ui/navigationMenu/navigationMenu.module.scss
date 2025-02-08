@@ -12,4 +12,8 @@
 .link {
   font-size: 14px;
   line-height: 21px;
+  transition: .25s color;
+  &:hover {
+    color: #776763;
+  }
 }

@@ -1,3 +1,5 @@
+@use "@shared/config/variables.scss" as *;
+
 .header {
   padding: 25px 0 23px;
   background-color: #f6f3f3;
@@ -11,10 +13,16 @@
 .designFix {
   flex-shrink: 0;
   width: 67px;
+  @media (max-width: $media-laptop) {
+    display: none;
+  }
 }
 .menu {
   padding: 0 16px;
   margin: 0 auto;
+  @media (max-width: $media-laptop) {
+    margin: 0;
+  }
 }
 .search {
   width: calc(100% * 5 / 12);
