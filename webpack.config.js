@@ -120,7 +120,7 @@ module.exports = (_, argv) => {
               modules: true,
               importLoaders: 2,
               modules: {
-                localIdentName: '[name]__[local]--[hash:base64:5]', 
+                localIdentName: "[name]__[local]--[hash:base64:5]",
               },
             },
           },
@@ -158,7 +158,7 @@ module.exports = (_, argv) => {
             importLoaders: 1,
             sourceMap: true,
             modules: {
-              localIdentName: '[name]__[local]--[hash:base64:5]',
+              localIdentName: "[name]__[local]--[hash:base64:5]",
             },
           },
         },
@@ -186,9 +186,7 @@ module.exports = (_, argv) => {
         }),
       ];
     }
-    return [
-      new VueLoaderPlugin(),
-    ];
+    return [new VueLoaderPlugin()];
   };
 
   return {
@@ -225,27 +223,31 @@ module.exports = (_, argv) => {
             {
               loader: "babel-loader",
               options: {
-                targets: "defaults",
                 presets: [
-                  ['@babel/preset-env']
-                ]
-              }
-            }
-          ]
+                  [
+                    "@babel/preset-env",
+                    {
+                      targets: "defaults",
+                    },
+                  ],
+                ],
+                plugins: [
+                  "@babel/plugin-proposal-optional-chaining",
+                ],
+              },
+            },
+          ],
         },
         useCSSModuleLoader(),
         useCSSLoader(),
         {
           test: /\.svg$/,
-          loader: 'vue-svg-loader',
+          loader: "vue-svg-loader",
           options: {
             svgo: {
-              plugins: [
-                { removeDoctype: true },
-                { removeComments: true },
-              ]
-            }
-          }
+              plugins: [{ removeDoctype: true }, { removeComments: true }],
+            },
+          },
         },
         {
           test: /\.(png|jpg|gif|webp)$/,
@@ -260,14 +262,14 @@ module.exports = (_, argv) => {
           test: /\.(woff|woff2|eot|ttf|otf)$/,
           use: [
             {
-              loader: 'file-loader',
+              loader: "file-loader",
               options: {
-                name: '[name].[ext]',
+                name: "[name].[ext]",
                 outputPath: "fonts/",
                 publicPath: isProduction ? "./fonts" : "/dist/fonts",
               },
             },
-          ]
+          ],
         },
       ],
     },

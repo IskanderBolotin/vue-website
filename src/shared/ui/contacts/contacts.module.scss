@@ -7,7 +7,7 @@
   @media (max-width: $media-laptop) {
     transform: none;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: flex-start;
   }
 }
 .item {
@@ -39,4 +39,7 @@
   font-size: 14px;
   line-height: 21px;
   white-space: nowrap;
+  @media (max-width: $media-laptop) {
+    white-space: normal;
+  }
 }

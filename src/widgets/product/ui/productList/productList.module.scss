@@ -1,8 +1,13 @@
+@use "@shared/config/variables.scss" as *;
+
 .list {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  margin: -32px -16px 0 ;
+  margin: -32px -16px 0;
+  @media (max-width: $media-mobile-sm) {
+    margin-top: -20px;
+  }
 }
 .item {
   padding: 32px 16px 0;
@@ -11,5 +16,15 @@
   flex-direction: column;
   & > * {
     flex-grow: 1;
+  }
+  @media (max-width: $media-tablet) {
+    width: calc(100% / 3);
+  }
+  @media (max-width: $media-tablet-sm) {
+    width: calc(100% / 2);
+  }
+  @media (max-width: $media-mobile-sm) {
+    width: 100%;
+    padding-top: 20px;
   }
 }

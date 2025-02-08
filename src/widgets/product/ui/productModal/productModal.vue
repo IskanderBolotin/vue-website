@@ -13,7 +13,7 @@
           <slide v-for="(image, index) in product.images" :key="index">
             <div :class="styles.image">
               <div :class="styles.imageInner">
-                <img :src="image" alt="Product Image" />
+                <img :src="image" alt="Product Image"/>
               </div>
             </div>
           </slide>

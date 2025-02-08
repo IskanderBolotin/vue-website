@@ -3,8 +3,9 @@
     <div v-if="isLoading">Загрузка...</div>
     <div v-else>
       <ul :class="styles.list">
-        <li v-for="picture in filteredPictures" :class="styles.item">
+        <li v-for="picture in filteredPictures" :class="styles.item" :key="picture.id">
           <Product
+            :id="picture.id"
             :image="picture.image"
             :name="picture.name"
             :price="picture.price"
@@ -12,6 +13,8 @@
             :isInStock="picture.isInStock"
             :description="picture.description"
             :gallery="picture.gallery"
+            :isInCart="isInCart(picture.id)"
+            @toggle-cart="toggleCart"
           />
         </li>
       </ul>
@@ -20,12 +23,12 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 import Product from "@widgets/product/ui/product/product.vue";
 import styles from "./productList.module.scss";
 
 export default {
-  name: "productList",
+  name: "ProductList",
   components: {
     Product,
   },
@@ -35,10 +38,13 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["getFilteredPictures", "isLoading"]),
+    ...mapGetters(["getFilteredPictures", "isLoading", "isInCart"]),
     filteredPictures() {
       return this.getFilteredPictures;
     },
+  },
+  methods: {
+    ...mapActions(["toggleCart"]),
   },
 };
 </script>

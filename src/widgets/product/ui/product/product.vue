@@ -17,8 +17,11 @@
               <div :class="styles.price">{{ price }} $</div>
             </div>
             <div :class="styles.button">
-              <CustomButton :onClick="handleBuyClick" :state="buttonState">
-                Купить
+              <CustomButton 
+                :onClick="isInCart ? handleRemoveClick : handleBuyClick" 
+                :state="buttonState"
+              >
+                {{ "Купить" }}
               </CustomButton>
             </div>
           </div>
@@ -46,6 +49,10 @@ export default {
     ProductModal,
   },
   props: {
+    id: {
+      type: Number,
+      required: true,
+    },
     description: {
       type: String,
       required: true,
@@ -74,10 +81,14 @@ export default {
       type: Boolean,
       default: true,
     },
+    isInCart: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
-      buttonState: "",
+      buttonState: this.isInCart ? "checked" : "",
       isModalOpen: false,
       styles,
     };
@@ -95,8 +106,8 @@ export default {
         description: this.description,
         price: this.price,
         images: this.gallery,
-      }
-    }
+      };
+    },
   },
   methods: {
     openModal() {
@@ -107,13 +118,27 @@ export default {
     },
     async handleBuyClick() {
       if (this.buttonState === "checked") {
-        return
+        return;
       }
       this.buttonState = "preloader";
 
       try {
         await this.performPurchase();
         this.buttonState = "checked";
+        this.$emit("toggle-cart", this.id);
+      } catch (error) {
+        console.error("Ошибка при покупке:", error);
+        this.buttonState = "";
+        alert("Произошла ошибка при покупке.");
+      }
+    },
+    async handleRemoveClick() {
+      this.buttonState = "preloader";
+
+      try {
+        await this.performPurchase();
+        this.buttonState = "";
+        this.$emit("toggle-cart", this.id);
       } catch (error) {
         console.error("Ошибка при покупке:", error);
         this.buttonState = "";
@@ -121,13 +146,9 @@ export default {
       }
     },
     performPurchase() {
-      return new Promise((resolve, reject) => {
+      return new Promise((resolve) => {
         setTimeout(() => {
-          if (Math.random() > 0.2) {
-            resolve();
-          } else {
-            reject(new Error("Ошибка оплаты"));
-          }
+          resolve();
         }, 2000);
       });
     },

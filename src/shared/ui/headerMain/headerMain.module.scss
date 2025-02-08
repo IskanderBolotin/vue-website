@@ -7,6 +7,7 @@
 }
 .row {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   margin: 0 -16px;
 }
@@ -28,9 +29,16 @@
   width: calc(100% * 5 / 12);
   padding: 0 16px;
   margin-left: auto;
+  @media (max-width: $media-tablet-sm) {
+    margin-top: 10px;
+    width: 100%;
+  }
 }
 .filed {
   width: 416px;
   max-width: 100%;
   margin-left: auto;
+  @media (max-width: $media-tablet-sm) {
+    margin-left: 0;
+  }
 }

@@ -11,6 +11,7 @@
     background-color: #F6F3F3;
     border: 1px solid #e1e1e1;
     transition: .25s border-color;
+    width: calc(100% - 122px);
     &:hover {
       border-color: #343030;
     }

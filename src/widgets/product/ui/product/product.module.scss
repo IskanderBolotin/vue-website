@@ -1,3 +1,5 @@
+@use "@shared/config/variables.scss" as *;
+
 .product {
   border: 1px solid #e1e1e1;
   background-color: #f6f3f3;
@@ -39,6 +41,9 @@
   padding: 19px 24px 24px;
   display: flex;
   flex-direction: column;
+  @media (max-width: $media-mobile) {
+    padding: 14px 15px 15px;
+  }
 }
 .name {
   font-size: 18px;
@@ -50,6 +55,11 @@
   transition: .25s color;
   &:hover {
     color: #776763;
+  }
+  @media (max-width: $media-mobile) {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 15px;
   }
 }
 .priceBlock {
@@ -64,6 +74,9 @@
   align-items: center;
   justify-content: space-between;
   margin: 0 -10px;
+  @media (max-width: $media-mobile) {
+    flex-direction: column;
+  }
 }
 .prices {
   width: 113px;
@@ -72,6 +85,10 @@
   flex-direction: column;
   align-items: flex-start;
   white-space: nowrap;
+  @media (max-width: $media-mobile) {
+    width: 100%;
+    margin-bottom: 5px;
+  }
 }
 .oldPrice {
   font-weight: 300;
@@ -87,8 +104,15 @@
   line-height: 24px;
 }
 .button {
-  max-width: calc(100% - 113px);
+  width: calc(100% - 113px);
   padding: 0 10px;
+  @media (max-width: $media-mobile) {
+    width: 100%;
+    max-width: 100%;
+  }
+  & > * {
+    width: 100%;
+  }
 }
 .emptyText {
   font-weight: 700;
